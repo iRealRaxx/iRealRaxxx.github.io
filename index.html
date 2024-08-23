@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy 19th Birthday Amisha!</title>
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-family: cursive;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .cake {
+            position: relative;
+            width: 80%;
+            height: 150px;
+            margin: 50px auto;
+            background: #f78fb3;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            box-sizing: border-box;
+            border: 5px solid #f5a5a5;
+            border-bottom: #fad0c4 20px dashed;
+        }
+
+        .cake::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 20px;
+            background: #f76c6c;
+            border-radius: 10px;
+        }
+
+        .cake::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 15px;
+            background: #fbe9e7;
+            border-radius: 10px;
+        }
+
+        .candle {
+            position: absolute;
+            width: 8px;
+            height: 40px;
+            background: #e74c3c;
+            border-radius: 4px;
+            top: -40px;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .candle::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 8px;
+            background: #f1c40f;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            animation: flicker 0.2s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        .candle.out {
+            opacity: 0;
+        }
+
+        .candle.out::before {
+            background: transparent;
+        }
+
+        #message {
+            display: none;
+            margin-top: 20px;
+            color: #2c3e50;
+            font-size: 1em;
+            animation: fadeIn 1s forwards;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #celebration {
+            display: none;
+            margin-top: 20px;
+            font-size: 2em;
+            color: #f76c6c;
+            animation: confetti 2s forwards;
+        }
+
+        @keyframes confetti {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        #strips {
+            display: none;
+            position: relative;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .strip {
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.5);
+            animation: pop 1s ease-in-out forwards;
+        }
+
+        .strip.left {
+            left: -100%;
+            animation: popFromLeft 5s ease-in-out forwards;
+        }
+
+        .strip.right {
+            right: -100%;
+            animation: popFromRight 5s ease-in-out forwards;
+        }
+
+        @keyframes popFromLeft {
+            0% { left: -100%; opacity: 0; }
+            50% { left: 0; opacity: 1; }
+            100% { left: 0; opacity: 0; }
+        }
+
+        @keyframes popFromRight {
+            0% { right: -100%; opacity: 0; }
+            50% { right: 0; opacity: 1; }
+            100% { right: 0; opacity: 0; }
+        }
+
+        #mic-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #mic-button:hover {
+            background-color: #2980b9;
+        }
+
+        #instruction {
+            display: none;
+            margin-top: 20px;
+            font-size: 1em;
+            color: #34495e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><b>Happy 19th Birthday, Amisha!🎉</b></h1>
+        <div class="cake">
+        </div>
+        <p id="instruction">Instructions: Blow out the candles by blowing air into your microphone!</p>
+        <div id="celebration">🎉🎉🎉</div>
+        <div id="strips">
+        </div>
+        <div id="message">
+            <p>
+                As you celebrate your 19th birthday, I hope you take a moment to reflect on how far you've come and all the amazing things you've achieved. 🌟
+                You're entering a year filled with endless potential and opportunities, and I can't wait to see all the incredible things you'll accomplish. 🚀
+                Your spirit and enthusiasm are truly contagious, and your kindness touches everyone you meet.
+                😊 This special day is a perfect time to remind you of how much you mean to me and to everyone who is lucky enough to know you. 🥳
+                I hope your birthday is filled with joy, laughter, and unforgettable memories. 🎂🎈
+                Here's to celebrating not just today, but every day that you make brighter with your presence. ✨
+                May your 19th year be a wonderful adventure, full of dreams coming true and new horizons to explore. 🌈
+                Cheers to a fantastic year ahead and to the wonderful person you are! 🥂
+
+                <hr>
+                I just want you to know how grateful I am to have you as my best friend.😊<br>
+                And I want to thank god as god has given me a friend like you<br>
+                With best wishes <br>
+                -Rakshit...
+            </p>
+        </div>
+        <button id="mic-button">Request Microphone Permission</button>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cake = document.querySelector('.cake');
+        const message = document.getElementById('message');
+        const instruction = document.getElementById('instruction');
+        const celebration = document.getElementById('celebration');
+        const strips = document.getElementById('strips');
+        let micButton = document.getElementById('mic-button');
+
+        let audioContext;
+        let analyser;
+        let microphone;
+
+        const candles = [];
+
+        for (let i = 0; i < 19; i++) {
+            const candle = document.createElement('div');
+            candle.classList.add('candle');
+            candle.style.left = `${(100 / 19) * i}%`;
+            cake.appendChild(candle);
+            candles.push(candle);
+        }
+
+        const numStrips = 4;
+        for (let i = 0; i < numStrips; i++) {
+            const strip = document.createElement('div');
+            strip.classList.add('strip');
+            if (i % 2 === 0) {
+                strip.classList.add('left');
+            } else {
+                strip.classList.add('right');
+            }
+            strips.appendChild(strip);
+        }
+
+        micButton.addEventListener('click', () => {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                analyser = audioContext.createAnalyser();
+                analyser.fftSize = 2048;
+            }
+
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    console.log('Microphone permission granted!');
+                    microphone = audioContext.createMediaStreamSource(stream);
+                    microphone.connect(analyser);
+                    micButton.style.display = 'none';
+                    instruction.style.display = 'block';
+                    detectBlow();
+                })
+                .catch(error => {
+                    console.error('Error requesting microphone permission:', error);
+                });
+        });
+
+        let candleIndex = 0;
+        function blowOutCandle() {
+            if (candleIndex < candles.length) {
+                candles[candleIndex].classList.add('out');
+                candleIndex++;
+
+                if (candleIndex === candles.length) {
+                    setTimeout(() => {
+                        cake.style.display = 'none';
+                        instruction.style.display = 'none';
+                        celebration.style.display = 'block';
+                        strips.style.display = 'block';
+                        setTimeout(() => {
+                            celebration.style.display = 'none';
+                            strips.style.display = 'none';
+                            message.style.display = 'block';
+                        }, 2000);
+                    }, 500);
+                }
+            }
+        }
+
+        function detectBlow() {
+            if (!analyser) return;
+
+            const dataArray = new Uint8Array(analyser.frequencyBinCount);
+            analyser.getByteTimeDomainData(dataArray);
+
+            let sum = 0;
+            for (let i = 0; i < dataArray.length; i++) {
+                sum += Math.abs(dataArray[i] - 128);
+            }
+
+            if (sum > 15000) {
+                blowOutCandle();
+            }
+
+            requestAnimationFrame(detectBlow);
+        }
+    });
+    </script>
+</body>
+</html>
